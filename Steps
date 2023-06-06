@@ -1,0 +1,14 @@
+ buildroot steps:
+ cd configs:
+    wget https://git.busybox.net/buildroot/plain/configs/raspberrypi4_64_defconfig
+    cd ..
+
+ make raspberrypi4_defconfig
+ make menuconfig
+    Target options -> Target Architecture AArch64 (little endian)
+then steps from
+    https://github.com/peter-nebe/optee_os/blob/master/core/arch/arm/plat-rpi4/building-linux-ree.md
+    host-need-cryptography = yes!
+make -j16
+sudo dd if=output/images/sdcard.img of=/dev/sda bs=1M
+sync
