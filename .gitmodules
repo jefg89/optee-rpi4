@@ -1,3 +1,6 @@
 [submodule "optee_os"]
 	path = optee_os
 	url = git@github.com:jefg89/optee_os.git
+[submodule "arm-trusted-firmware"]
+	path = arm-trusted-firmware
+	url = git@github.com:jefg89/arm-trusted-firmware.git
