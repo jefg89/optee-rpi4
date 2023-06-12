@@ -13,7 +13,7 @@ const int MEGABYTE = (1024*1024);
 size_t SIZE_BYTES = (20 * MEGABYTE); // MB
 
 
-float BPS = 50; //about 20 in real life
+float BPS = 125; //about 20 in real life (Change me to 125 for 2 period)
 float CHANNEL_FREQUENCY_HZ = 250; //Hz
 float alpha = 1.15; // Correction factor for ratio between processing and sleeping
 
@@ -170,7 +170,7 @@ void sendData(string binaryString) {
             sendOne(half_period_ms);
         } else {
             cout << "Sending 0..." << endl;
-            sendZero(half_period_ms*alpha);
+            sendZero(2*half_period_ms * alpha);
         }
         auto endBitSend = high_resolution_clock::now();
         std::chrono::duration<double, std::milli> elapsedBitSend = endBitSend-startBitSend;
