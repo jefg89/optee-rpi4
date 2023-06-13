@@ -1,5 +1,6 @@
-CPP      = $(CROSS_COMPILE)g++
+CC      = $(CROSS_COMPILE)gcc
 LD      = $(CROSS_COMPILE)ld
+CPP 	=$(CROSS_COMPILE)g++
 
 
 BIN = sampler
@@ -15,5 +16,5 @@ $(BIN): $(OBJS)
 clean:
 	rm -f $(OBJS) $(BIN)
 
-%.o: %.cpp
+%.o: %.cc
 	$(CPP) $(CFLAGS) -c $< -o $@

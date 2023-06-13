@@ -39,7 +39,7 @@ unsigned int atoif(string str)
 /// @brief Returns the current used memory in the system from /proc/meminfo
 /// @return Current used memory 
 unsigned int getUsedMem() {
-    auto start = high_resolution_clock::now();
+//  auto start = high_resolution_clock::now();
     std::string content[4];
     std::ifstream memfile ("/proc/meminfo"); 
     unsigned int used, total, free, buffers , cached;
@@ -59,8 +59,9 @@ unsigned int getUsedMem() {
     }
     total = atoif(content[0]);
     free  = atoif(content[1]);
-    buffers = atoif(content[0]);
-    used = total - free - buffers;
+    buffers = atoif(content[2]);
+    cached = atoif(content[3]);
+    used = total - free - buffers - cached;
     return used;
 }
 
